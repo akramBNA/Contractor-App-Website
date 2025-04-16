@@ -1,1 +1,86 @@
-<p>contact-us works!</p>
+<div class="w-full min-h-screen bg-blue-900 flex flex-col items-center justify-center px-4 py-10">
+    <h2 class="text-4xl md:text-5xl font-bold text-yellow-500 mb-10 text-center">Contact Us</h2>
+  
+    <div class="w-full max-w-7xl flex flex-col lg:flex-row gap-8">
+
+      <div class="flex-1 h-[400px] lg:h-[550px]">
+        <iframe
+          class="w-full h-full rounded-2xl shadow-lg"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3125.6684182470353!2d10.16443781560243!3d36.86653607993609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1302c992aaaedc3f%3A0xf1914c5c20dfd59!2sAriana%2C%20Tunisia!5e0!3m2!1sen!2stn!4v1713271228391"
+          style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+  
+      <div class="flex-1 bg-blue-900 p-0">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
+          
+          <div class="flex flex-col md:flex-row gap-4">
+            <div class="w-full">
+              <label class="text-white font-semibold">First Name <span class="text-red-500">*</span></label>
+              <input
+                type="text"
+                placeholder="Enter your first name"
+                formControlName="firstName"
+                class="w-full px-4 py-3 border border-white text-white bg-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              />
+              <div *ngIf="f['firstName'].touched && f['firstName'].invalid" class="text-red-400 text-sm mt-1">First name is required.</div>
+            </div>
+  
+            <div class="w-full">
+              <label class="text-white font-semibold">Last Name <span class="text-red-500">*</span></label>
+              <input
+                type="text"
+                placeholder="Enter your last name"
+                formControlName="lastName"
+                class="w-full px-4 py-3 border border-white text-white bg-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              />
+              <div *ngIf="f['lastName'].touched && f['lastName'].invalid" class="text-red-400 text-sm mt-1">Last name is required.</div>
+            </div>
+          </div>
+  
+          <div>
+            <label class="text-white font-semibold">Subject <span class="text-red-500">*</span></label>
+            <input
+              type="text"
+              placeholder="Enter subject"
+              formControlName="subject"
+              class="w-full px-4 py-3 border border-white text-white bg-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            />
+            <div *ngIf="f['subject'].touched && f['subject'].invalid" class="text-red-400 text-sm mt-1">Subject is required.</div>
+          </div>
+  
+          <div>
+            <label class="text-white font-semibold">Email <span class="text-red-500">*</span></label>
+            <input
+              type="email"
+              placeholder="example@email.com"
+              formControlName="email"
+              class="w-full px-4 py-3 border border-white text-white bg-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            />
+            <div *ngIf="f['email'].touched && f['email'].errors?.['required']" class="text-red-400 text-sm mt-1">Email is required.</div>
+            <div *ngIf="f['email'].touched && f['email'].errors?.['email']" class="text-red-400 text-sm mt-1">Invalid email format.</div>
+          </div>
+  
+          <div>
+            <label class="text-white font-semibold">Message <span class="text-red-500">*</span></label>
+            <textarea
+              rows="5"
+              placeholder="Write your message here..."
+              formControlName="message"
+              class="w-full px-4 py-3 border border-white text-white bg-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            ></textarea>
+            <div *ngIf="f['message'].touched && f['message'].invalid" class="text-red-400 text-sm mt-1">Message is required.</div>
+          </div>
+  
+          <button
+            type="submit"
+            class="mt-4 bg-yellow-500 text-blue-900 font-bold px-6 py-3 rounded-lg hover:bg-yellow-400 shadow-md transition duration-300"
+          >
+            Send Message
+          </button>
+  
+        </form>
+      </div>
+    </div>
+  </div>
+  
