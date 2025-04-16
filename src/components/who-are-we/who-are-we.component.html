@@ -1,25 +1,50 @@
-<div class="min-h-screen relative bg-blue-900 py-12 px-6 sm:px-12 min-h-[300px]">
-    <h2 class="text-3xl font-bold text-white mb-6 text-center sm:text-left">
-      Qui sommes-nous ?
-    </h2>
-  
-    <!-- Skeleton Loader -->
-    <div *ngIf="loading" class="space-y-4 animate-pulse">
-      <div class="h-4 bg-gray-300 rounded w-3/4"></div>
+<div class="min-h-screen bg-blue-900 flex items-center justify-center px-6 sm:px-12">
+
+  <div *ngIf="loading" class="flex flex-col lg:flex-row items-center gap-16 animate-pulse w-full max-w-7xl">
+    <div class="w-full lg:w-1/2 flex justify-center">
+      <div class="bg-gray-300 rounded-lg w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96"></div>
+    </div>
+
+    <div class="w-full lg:w-1/2 space-y-6">
+      <div class="h-6 bg-gray-300 rounded w-2/3"></div>
       <div class="h-4 bg-gray-300 rounded w-full"></div>
       <div class="h-4 bg-gray-300 rounded w-5/6"></div>
+      <div class="h-4 bg-gray-300 rounded w-3/4"></div>
       <div class="h-4 bg-gray-300 rounded w-2/3"></div>
     </div>
-  
-    <!-- Actual Content -->
-    <div *ngIf="!loading" class="text-white leading-relaxed text-lg">
-      Fondée en <strong>1846</strong> par <strong>Hadj Ali Ben Abdallah</strong>, la société Soheba s’est imposée 
-      comme une référence dans le domaine de la <strong>construction publique</strong> et de la 
-      <strong>logistique pétrolière</strong>. 
-      Forte de son <strong>impressionnant bilan en matière de sécurité</strong>, l’entreprise place le 
-      bien-être de ses collaborateurs au cœur de ses priorités en offrant des 
-      <strong>conditions de travail exemplaires</strong>. 
-      L'engagement envers l'excellence et le respect des normes les plus strictes sont au cœur de notre identité.
+  </div>
+
+  <div *ngIf="!loading" class="flex flex-col lg:flex-row items-center gap-16 w-full max-w-7xl">
+    <div class="w-full lg:w-1/2 flex justify-center">
+      <img
+      src="/assets/soheba_logo.png"
+      alt="SOHEBA Logo"
+      class="w-72 sm:w-80 lg:w-96 h-auto drop-shadow-xl rounded-xl"
+    />
+  </div>
+
+    <div class="w-full lg:w-1/2 text-center lg:text-left px-4">
+      <h2 class="text-4xl sm:text-5xl font-bold text-yellow-500 mb-6">
+        Qui sommes-nous ?
+      </h2>
+      <div class="text-white text-lg sm:text-xl leading-relaxed font-medium space-y-4">
+        <p>
+          Fondée en <strong class="text-yellow-400">1846</strong> par
+          <strong class="text-yellow-400">Hadj Ali Ben Abdallah</strong>, la société Soheba s’est imposée
+          comme une référence dans le domaine de la
+          <strong class="text-yellow-400">construction publique</strong> et de la
+          <strong class="text-yellow-400">logistique pétrolière</strong>.
+        </p>
+        <p>
+          Forte de son <strong class="text-yellow-400">impressionnant bilan en matière de sécurité</strong>,
+          l’entreprise place le bien-être de ses collaborateurs au cœur de ses priorités en offrant des
+          <strong class="text-yellow-400">conditions de travail exemplaires</strong>.
+        </p>
+        <p>
+          L'engagement envers l'excellence et le respect des normes les plus strictes sont au cœur de
+          notre identité.
+        </p>
+      </div>
     </div>
   </div>
-  
+</div>
