@@ -34,7 +34,7 @@ export class ContactUsComponent implements OnInit {
       Swal.fire({
         icon: 'info',
         title: 'Under Development',
-        text: 'The emailing is under development!',
+        text: 'The email service is under development! Please check back later.',
         confirmButtonColor: '#3085d6',
       });
 
