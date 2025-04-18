@@ -13,7 +13,7 @@ export class WhoAreWeComponent implements OnInit {
 
   ngOnInit() {
     const img = new Image();
-    img.src = '/assets/soheba_logo.png';
+    img.src = 'assets/soheba_logo.png';
     img.onload = () => {
       this.loading = false;
     };
