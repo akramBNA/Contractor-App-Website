@@ -1,10 +1,20 @@
-/* Optional: Remove default focus styles on buttons */
-button:focus {
-    outline: none;
-  }
+@media (max-width: 768px) {
+    .scroll-snap-align-center {
+      scroll-snap-align: center;
+    }
   
-  /* Optional: Smooth transitions */
-  button {
-    transition: all 0.3s ease-in-out;
+    .flex-row {
+      flex-direction: row !important;
+    }
+  
+    .overflow-x-auto {
+      scroll-snap-type: x mandatory;
+      overflow-x: none;
+      -webkit-overflow-scrolling: touch;
+    }
+  
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
   
