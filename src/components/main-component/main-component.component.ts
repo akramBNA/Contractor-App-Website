@@ -28,8 +28,8 @@ import 'aos/dist/aos.css'; // import AOS styles
 export class MainComponentComponent {
   ngOnInit() {
     AOS.init({
-      duration: 1000, // Animation duration (ms)
-      once: true, // Trigger animation only once
+      duration: 1000,
+      once: true,
     });
   }
 }
