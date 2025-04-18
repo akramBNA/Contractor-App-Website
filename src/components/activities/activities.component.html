@@ -1,0 +1,28 @@
+<section class="w-full h-screen bg-blue-900 text-yellow-500 flex flex-col items-center justify-center px-6 py-12 relative">
+
+    <h2 class="text-5xl font-bold text-center absolute top-20">Nos Activités</h2>
+  
+    <div class="flex items-center justify-center w-full max-w-5xl mt-44 relative">
+      
+      <button
+        (click)="prevCard()"
+        class="absolute left-0 z-10 text-white text-6xl rounded-full shadow-lg"
+      >
+        ◀
+      </button>
+  
+      <div class="w-[90%] md:w-[500px] h-[500px] bg-blue-950 rounded-3xl p-10 flex flex-col items-center text-center shadow-xl transition-all duration-300 scale-105">
+        <img [src]="cards[activeIndex].image" alt="{{ cards[activeIndex].title }}" class="w-40 h-40 mb-6">
+        <h3 class="text-3xl font-semibold mb-3">{{ cards[activeIndex].title }}</h3>
+        <p class="text-lg text-white">{{ cards[activeIndex].description }}</p>
+      </div>
+  
+      <button
+        (click)="nextCard()"
+        class="absolute right-0 z-10 text-white text-6xl rounded-full shadow-lg"
+      >
+        ▶
+      </button>
+    </div>
+  </section>
+  

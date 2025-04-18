@@ -1,0 +1,10 @@
+/* Optional: Remove default focus styles on buttons */
+button:focus {
+    outline: none;
+  }
+  
+  /* Optional: Smooth transitions */
+  button {
+    transition: all 0.3s ease-in-out;
+  }
+  
