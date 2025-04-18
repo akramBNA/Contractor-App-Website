@@ -5,6 +5,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { ContactUsComponent } from '../contact-us/contact-us.component';
 import { StatisticsComponent } from '../statistics/statistics.component';
 import { ActivitiesComponent } from '../activities/activities.component';
+import { ScrollToTopComponent } from '../scroll-to-top/scroll-to-top.component';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // import AOS styles
@@ -18,7 +19,8 @@ import 'aos/dist/aos.css'; // import AOS styles
     FooterComponent,
     ContactUsComponent,
     StatisticsComponent,
-    ActivitiesComponent
+    ActivitiesComponent,
+    ScrollToTopComponent
   ],
   templateUrl: './main-component.component.html',
   styleUrl: './main-component.component.css',
