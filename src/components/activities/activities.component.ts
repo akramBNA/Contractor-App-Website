@@ -56,10 +56,12 @@ export class ActivitiesComponent {
 
   onScroll(container: HTMLElement) {
     const scrollLeft = container.scrollLeft;
-    const cardWidth = container.offsetWidth;
+    // const cardWidth = container.offsetWidth;
 
+    const cardCount = this.cards.length;
+    const cardWidth = container.scrollWidth / cardCount;
     const index = Math.round(scrollLeft / cardWidth);
-    if (index !== this.activeIndex) {
+        if (index !== this.activeIndex) {
       this.activeIndex = index;
     }
   }
