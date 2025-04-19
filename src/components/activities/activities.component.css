@@ -1,20 +1,19 @@
 @media (max-width: 768px) {
-    .scroll-snap-align-center {
-      scroll-snap-align: center;
-    }
-  
-    .flex-row {
-      flex-direction: row !important;
-    }
-  
-    .overflow-x-auto {
-      scroll-snap-type: x mandatory;
-      overflow-x: none;
-      -webkit-overflow-scrolling: touch;
-    }
-  
-    ::-webkit-scrollbar {
-      display: none;
-    }
+  .scroll-snap-align-center {
+    scroll-snap-align: center;
   }
-  
+
+  .flex-row {
+    flex-direction: row !important;
+  }
+
+  .carousel-container {
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
