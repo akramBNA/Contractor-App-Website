@@ -35,9 +35,9 @@
 
       <ng-container *ngIf="isMobile">
         <div
-          *ngFor="let card of cards; let i = index"
-          class="w-full h-full px-4 flex-shrink-0 scroll-snap-align-center flex flex-col items-center justify-center space-y-4 p-6 box-border"
-        >
+        *ngFor="let card of cards; let i = index"
+        class="w-[85vw] max-w-xs h-full flex-shrink-0 scroll-snap-align-center flex flex-col items-center justify-center space-y-4 p-6 box-border mx-auto"
+      >
           <img
             [src]="card.image"
             alt="{{ card.title }}"
