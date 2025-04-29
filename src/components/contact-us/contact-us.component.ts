@@ -39,6 +39,13 @@ export class ContactUsComponent implements OnInit {
       });
 
       this.contactForm.reset();
+    } else {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Invalid Form',
+        text: 'Please fill in all required fields correctly.',
+        confirmButtonColor: '#3085d6',
+      });
     }
   }
 }
