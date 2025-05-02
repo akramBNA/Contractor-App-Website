@@ -9,7 +9,7 @@
 - Angular  v18
 - Node.js v20
 - Tailwind CS
-- TypeScrip
+- TypeScript
 - EmailJS ...
 
 # 🚀 Getting Started
