@@ -22,5 +22,7 @@
 
 - npm start
 
-## > ⚠️ This project is currently in active development.
+## ⚠️ This project is currently in active development.
+
+## ⚠️ THIS PROJECT IS FOR PERSONAL PORTFOLIO USE ONLY. PLEASE DO NOT REUSE OR REDISTRIBUTE ANY PART OF THIS CODE.
 
