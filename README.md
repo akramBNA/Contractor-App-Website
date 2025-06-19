@@ -25,9 +25,9 @@
 # 📷 Screenshots:
 
 <p align="center">
-  <img src="src/assets/app_screenshot_1.png" width="300" />
-  <img src="src/assets/app_screenshot_2.png" width="300" />
-  <img src="src/assets/app_screenshot_3.png" width="300" />
+  <img src="src/assets/app_screenshot_1.png" width="250" />
+  <img src="src/assets/app_screenshot_2.png" width="250" />
+  <img src="src/assets/app_screenshot_3.png" width="250" />
 </p>
 
 
