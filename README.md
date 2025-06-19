@@ -22,6 +22,14 @@
 
 - npm start
 
+# Screenshots:
+
+![Who We Are Screenshot](assets/app_screenshot_1.png)
+
+![Contact Us Screenshot](assets/app_screenshot_2.png)
+
+![Activities Screenshot](assets/app_screenshot_1.png)
+
 ## ⚠️ This project is currently in active development.
 
 ## ⚠️ THIS PROJECT IS FOR PERSONAL PORTFOLIO USE ONLY. PLEASE DO NOT REUSE OR REDISTRIBUTE ANY PART OF THIS CODE.
