@@ -24,7 +24,7 @@
 
 # Screenshots:
 
-![Who We Are Screenshot](assets/app_screenshot_1.png)
+![Who We Are Screenshot](src/assets/app_screenshot_1.png)
 
 ![Contact Us Screenshot](assets/app_screenshot_2.png)
 
