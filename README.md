@@ -24,11 +24,11 @@
 
 # 📷 Screenshots:
 
-![Who We Are Screenshot](src/assets/app_screenshot_1.png)
-
-![Contact Us Screenshot](src/assets/app_screenshot_2.png)
-
-![Activities Screenshot](src/assets/app_screenshot_1.png)
+<p align="center">
+  <img src="src/assets/app_screenshot_1.png" width="200" />
+  <img src="src/assets/app_screenshot_2.png" width="200" />
+  <img src="src/assets/app_screenshot_3.png" width="200" />
+</p>
 
 
 ## ⚠️ This project is currently in active development.
