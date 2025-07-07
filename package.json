@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href=/Contractor-App-Website/",
+    "deploy": "npm run build && npx angular-cli-ghpages --dir=dist/contractor-app-website/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
