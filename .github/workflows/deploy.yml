@@ -26,10 +26,10 @@ jobs:
 
       - name: Build Angular app
         run: |
-          npm run build -- --base-href "https://akramBNA.github.io/Contractor-app/"
+          npm run build -- --base-href="/Contractor-App-Website/"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist/contractor-app/browser
+          publish_dir: dist/contractor-app-website/browser
