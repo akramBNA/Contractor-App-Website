@@ -26,7 +26,12 @@ jobs:
 
       - name: Build Angular app
         run: |
-          npm run build -- --base-href="/Contractor-App-Website/"
+          # npm run build -- --base-href="/Contractor-App-Website/"
+          npm run build -- --base-href="/"
+
+      - name: Copy CNAME file
+        run: cp src/CNAME dist/contractor-app-website/browser/CNAME
+
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
