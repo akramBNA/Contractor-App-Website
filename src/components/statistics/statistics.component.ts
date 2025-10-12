@@ -14,7 +14,7 @@ export class StatisticsComponent implements AfterViewInit {
       { id: 'experience', endVal: 40 },
       { id: 'hours', endVal: 75000 },
       { id: 'transport', endVal: 1000000 },
-      { id: 'revenue', endVal: 20 },
+      { id: 'revenue', endVal: 5},
     ];
 
     const observer = new IntersectionObserver((entries, obs) => {
