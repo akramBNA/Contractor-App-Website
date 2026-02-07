@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './activities.component.html',
   styleUrls: ['./activities.component.css'],
 })
-export class ActivitiesComponent {
+export class ActivitiesComponent implements OnInit {
   activeIndex = 0;
   isMobile = false;
 
@@ -41,7 +41,7 @@ export class ActivitiesComponent {
   }
 
   checkScreenSize() {
-    this.isMobile = window.innerWidth <= 768;
+    this.isMobile = window.innerWidth < 1024;
   }
 
   prevCard() {
@@ -55,12 +55,10 @@ export class ActivitiesComponent {
   }
 
   onScroll(container: HTMLElement) {
-    const scrollLeft = container.scrollLeft;
+    const cardWidth = container.scrollWidth / this.cards.length;
+    const index = Math.round(container.scrollLeft / cardWidth);
 
-    const cardCount = this.cards.length;
-    const cardWidth = container.scrollWidth / cardCount;
-    const index = Math.round(scrollLeft / cardWidth);
-        if (index !== this.activeIndex) {
+    if (index !== this.activeIndex) {
       this.activeIndex = index;
     }
   }
