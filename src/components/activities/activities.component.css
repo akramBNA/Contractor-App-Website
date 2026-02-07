@@ -1,8 +1,10 @@
+.carousel-container {
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
 @media (max-width: 1023px) {
   .carousel-container {
-    display: flex;
-    flex-wrap: nowrap;
-    scroll-snap-type: x mandatory;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
