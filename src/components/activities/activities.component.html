@@ -4,7 +4,7 @@
 
   <div class="flex items-center justify-center w-full max-w-5xl mt-20 relative">
 
-    <button (click)="prevCard()" class="absolute left-[-3rem] z-10 text-white text-5xl rounded-full shadow-lg hidden lg:block">◀</button>
+    <button (click)="prevCard()" class="absolute left-[-3rem] z-10 text-white text-5xl rounded-full shadow-lg hidden lg:block cursor-pointer">◀</button>
 
     <div
       #carousel
@@ -27,7 +27,7 @@
       </ng-container>
     </div>
 
-    <button (click)="nextCard()" class="absolute right-[-3rem] z-10 text-white text-5xl rounded-full shadow-lg hidden lg:block">▶</button>
+    <button (click)="nextCard()" class="absolute right-[-3rem] z-10 text-white text-5xl rounded-full shadow-lg hidden lg:block cursor-pointer">▶</button>
   </div>
 
   <div class="w-full flex justify-center mt-10 lg:hidden">
