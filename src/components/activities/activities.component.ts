@@ -5,6 +5,7 @@ import {
   OnDestroy,
   ViewChild,
   ElementRef,
+  AfterViewInit,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -15,13 +16,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './activities.component.html',
   styleUrls: ['./activities.component.css'],
 })
-export class ActivitiesComponent implements OnInit, OnDestroy {
+export class ActivitiesComponent
+  implements OnInit, AfterViewInit, OnDestroy
+{
   @ViewChild('carousel', { static: false })
   carousel!: ElementRef<HTMLElement>;
 
-  activeIndex = 0;
   isMobile = false;
-  autoScrollInterval: any;
+  autoScrollTimer: any;
 
   cards = [
     {
@@ -42,13 +44,23 @@ export class ActivitiesComponent implements OnInit, OnDestroy {
     },
   ];
 
+  loopedCards: any[] = [];
+  activeIndex = 1;
+
   ngOnInit() {
     this.checkScreenSize();
-    this.startAutoScroll();
+    this.buildLoopedCards();
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.jumpToIndex(this.activeIndex);
+      this.startAutoScroll();
+    });
   }
 
   ngOnDestroy() {
-    clearInterval(this.autoScrollInterval);
+    clearInterval(this.autoScrollTimer);
   }
 
   @HostListener('window:resize')
@@ -60,52 +72,72 @@ export class ActivitiesComponent implements OnInit, OnDestroy {
     this.isMobile = window.innerWidth < 1024;
   }
 
+  buildLoopedCards() {
+    const first = this.cards[0];
+    const last = this.cards[this.cards.length - 1];
+
+    this.loopedCards = [last, ...this.cards, first];
+  }
+
   startAutoScroll() {
-    this.autoScrollInterval = setInterval(() => {
-      this.nextCard(true);
+    this.autoScrollTimer = setInterval(() => {
+      this.next();
     }, 5000);
   }
 
   resetAutoScroll() {
-    clearInterval(this.autoScrollInterval);
+    clearInterval(this.autoScrollTimer);
     this.startAutoScroll();
   }
 
-  prevCard(manual = false) {
-    this.activeIndex =
-      this.activeIndex === 0 ? this.cards.length - 1 : this.activeIndex - 1;
-
-    this.scrollToActive();
+  next(manual = false) {
+    this.activeIndex++;
+    this.scrollToIndex(true);
     if (!manual) this.resetAutoScroll();
   }
 
-  nextCard(manual = false) {
-    this.activeIndex =
-      this.activeIndex === this.cards.length - 1 ? 0 : this.activeIndex + 1;
-
-    this.scrollToActive();
+  prev(manual = false) {
+    this.activeIndex--;
+    this.scrollToIndex(true);
     if (!manual) this.resetAutoScroll();
   }
 
-  scrollToActive() {
-    if (!this.carousel) return;
-
+  scrollToIndex(animated: boolean) {
     const container = this.carousel.nativeElement;
-    const cardWidth = container.clientWidth;
+    const width = container.clientWidth;
 
     container.scrollTo({
-      left: this.activeIndex * cardWidth,
-      behavior: 'smooth',
+      left: this.activeIndex * width,
+      behavior: animated ? 'smooth' : 'auto',
+    });
+  }
+
+  jumpToIndex(index: number) {
+    const container = this.carousel.nativeElement;
+    const width = container.clientWidth;
+
+    container.scrollTo({
+      left: index * width,
+      behavior: 'auto',
     });
   }
 
   onScroll(container: HTMLElement) {
-    const cardWidth = container.clientWidth;
-    const index = Math.round(container.scrollLeft / cardWidth);
+    const width = container.clientWidth;
+    const index = Math.round(container.scrollLeft / width);
 
-    if (index !== this.activeIndex) {
-      this.activeIndex = index;
-      this.resetAutoScroll();
+    this.activeIndex = index;
+
+    if (index === 0) {
+      this.activeIndex = this.cards.length;
+      this.jumpToIndex(this.activeIndex);
     }
+
+    if (index === this.loopedCards.length - 1) {
+      this.activeIndex = 1;
+      this.jumpToIndex(this.activeIndex);
+    }
+
+    this.resetAutoScroll();
   }
 }
