@@ -1,3 +1,8 @@
+.carousel-container {
+  overflow-x: hidden;
+}
+
+
 @media (max-width: 1023px) {
   .carousel-container {
     display: flex;
