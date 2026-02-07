@@ -19,13 +19,10 @@
       </ng-container>
 
       <ng-container *ngIf="isMobile">
-        <div
-          *ngFor="let card of cards"
-          class="w-[85vw] max-w-xs h-full flex-shrink-0 scroll-snap-align-center flex flex-col items-center justify-center space-y-4 p-6 mx-auto"
-        >
+        <div *ngFor="let card of cards" class="carousel-card w-full h-full flex-shrink-0 scroll-snap-align-center flex flex-col items-center justify-center space-y-4 p-6 text-center">
           <img [src]="card.image" alt="{{ card.title }}" class="w-32 h-32 md:w-40 md:h-40 object-contain"/>
-          <h3 class="text-2xl md:text-3xl font-semibold text-center">{{ card.title }}</h3>
-          <p class="text-base md:text-lg text-white text-center">{{ card.description }}</p>
+          <h3 class="text-2xl md:text-3xl font-semibold">{{ card.title }}</h3>
+          <p class="text-base md:text-lg text-white max-w-md">{{ card.description }}</p>
         </div>
       </ng-container>
     </div>
