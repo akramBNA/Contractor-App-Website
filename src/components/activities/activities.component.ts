@@ -1,4 +1,11 @@
-import { Component, HostListener } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  OnInit,
+  OnDestroy,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,9 +15,13 @@ import { CommonModule } from '@angular/common';
   templateUrl: './activities.component.html',
   styleUrls: ['./activities.component.css'],
 })
-export class ActivitiesComponent {
+export class ActivitiesComponent implements OnInit, OnDestroy {
+  @ViewChild('carousel', { static: false })
+  carousel!: ElementRef<HTMLElement>;
+
   activeIndex = 0;
   isMobile = false;
+  autoScrollInterval: any;
 
   cards = [
     {
@@ -33,6 +44,11 @@ export class ActivitiesComponent {
 
   ngOnInit() {
     this.checkScreenSize();
+    this.startAutoScroll();
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.autoScrollInterval);
   }
 
   @HostListener('window:resize')
@@ -41,27 +57,55 @@ export class ActivitiesComponent {
   }
 
   checkScreenSize() {
-    this.isMobile = window.innerWidth <= 768;
+    this.isMobile = window.innerWidth < 1024;
   }
 
-  prevCard() {
+  startAutoScroll() {
+    this.autoScrollInterval = setInterval(() => {
+      this.nextCard(true);
+    }, 5000);
+  }
+
+  resetAutoScroll() {
+    clearInterval(this.autoScrollInterval);
+    this.startAutoScroll();
+  }
+
+  prevCard(manual = false) {
     this.activeIndex =
       this.activeIndex === 0 ? this.cards.length - 1 : this.activeIndex - 1;
+
+    this.scrollToActive();
+    if (!manual) this.resetAutoScroll();
   }
 
-  nextCard() {
+  nextCard(manual = false) {
     this.activeIndex =
       this.activeIndex === this.cards.length - 1 ? 0 : this.activeIndex + 1;
+
+    this.scrollToActive();
+    if (!manual) this.resetAutoScroll();
+  }
+
+  scrollToActive() {
+    if (!this.carousel) return;
+
+    const container = this.carousel.nativeElement;
+    const cardWidth = container.clientWidth;
+
+    container.scrollTo({
+      left: this.activeIndex * cardWidth,
+      behavior: 'smooth',
+    });
   }
 
   onScroll(container: HTMLElement) {
-    const scrollLeft = container.scrollLeft;
+    const cardWidth = container.clientWidth;
+    const index = Math.round(container.scrollLeft / cardWidth);
 
-    const cardCount = this.cards.length;
-    const cardWidth = container.scrollWidth / cardCount;
-    const index = Math.round(scrollLeft / cardWidth);
-        if (index !== this.activeIndex) {
+    if (index !== this.activeIndex) {
       this.activeIndex = index;
+      this.resetAutoScroll();
     }
   }
 }
