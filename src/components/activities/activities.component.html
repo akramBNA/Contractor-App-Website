@@ -1,15 +1,15 @@
 <section id="activitiés" class="w-full h-screen bg-blue-900 text-yellow-500 flex flex-col items-center justify-center px-6 py-12 relative">
-
+  
   <h2 class="text-4xl sm:text-5xl font-bold text-yellow-500">Nos Activités</h2>
 
   <div class="flex items-center justify-center w-full max-w-5xl mt-20 relative">
 
-    <button (click)="prevCard()" class="absolute left-0 z-10 text-white text-5xl rounded-full shadow-lg hidden lg:block">◀</button>
+    <button (click)="prevCard()" class="absolute left-[-3rem] z-10 text-white text-5xl rounded-full shadow-lg hidden lg:block">◀</button>
 
     <div
       #carousel
       (scroll)="onScroll(carousel)"
-      class="carousel-container relative w-[90%] md:w-[600px] h-[500px] bg-blue-950 rounded-3xl p-10 flex flex-col items-center text-center shadow-xl transition-all duration-300 scale-105 sm:overflow-visible"
+      class="carousel-container relative w-[90%] md:w-[600px] h-[500px] bg-blue-950 rounded-3xl p-10 flex items-center text-center shadow-xl transition-all duration-300 scale-105 lg:overflow-visible"
       [ngClass]="{ 'flex-row': isMobile, 'flex-col': !isMobile }"
     >
       <ng-container *ngIf="!isMobile">
@@ -20,21 +20,20 @@
 
       <ng-container *ngIf="isMobile">
         <div
-        *ngFor="let card of cards; let i = index"
-        class="w-[85vw] max-w-xs h-full flex-shrink-0 scroll-snap-align-center flex flex-col items-center justify-center space-y-4 p-6 box-border mx-auto"
-      >
-          <img [src]="card.image" alt="{{ card.title }}" class="w-32 h-32 md:w-40 md:h-40 mb-2 object-contain"/>
-          <h3 class="text-2xl md:text-3xl font-semibold text-center break-words">{{ card.title }}</h3>
-          <p class="text-base md:text-lg text-white text-center break-words">{{ card.description }}</p>
+          *ngFor="let card of cards"
+          class="w-[85vw] max-w-xs h-full flex-shrink-0 scroll-snap-align-center flex flex-col items-center justify-center space-y-4 p-6 mx-auto"
+        >
+          <img [src]="card.image" alt="{{ card.title }}" class="w-32 h-32 md:w-40 md:h-40 object-contain"/>
+          <h3 class="text-2xl md:text-3xl font-semibold text-center">{{ card.title }}</h3>
+          <p class="text-base md:text-lg text-white text-center">{{ card.description }}</p>
         </div>
       </ng-container>
     </div>
 
-    <button (click)="nextCard()" class="absolute right-0 z-10 text-white text-5xl rounded-full shadow-lg hidden lg:block">▶
-    </button>
+    <button (click)="nextCard()" class="absolute right-[-3rem] z-10 text-white text-5xl rounded-full shadow-lg hidden lg:block">▶</button>
   </div>
 
-  <div class="w-full flex justify-center mt-10 sm:hidden">
+  <div class="w-full flex justify-center mt-10 lg:hidden">
     <div class="flex gap-2">
       <div
         *ngFor="let card of cards; let i = index"
