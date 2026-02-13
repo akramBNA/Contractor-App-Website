@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
 })
@@ -13,5 +12,10 @@ export class NavbarComponent {
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
-  }
+  };
+
+  goToDashboard(): void {
+    window.location.href = 'https://dashboard-sohaba.work.gd';
+  };
+
 }
