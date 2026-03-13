@@ -10,7 +10,7 @@
 
 # 🔧 Technologies Used
 
-- Angular  v18
+- Angular  v19
 - Node.js v20
 - Tailwind CS
 - TypeScript
