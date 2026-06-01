@@ -4,11 +4,13 @@
 
 ## ⚠️ THIS PROJECT IS FOR PERSONAL PORTFOLIO USE ONLY. PLEASE DO NOT REUSE OR REDISTRIBUTE ANY PART OF THIS CODE.
 
+## This is the version 2 of the app.
+
 * This is an application that serves as the **showcase website** for a contractor company named **Soheba**. 
 * It highlights the company's identity, services, and projects. 
 * In the future, this application will also include a full-fledged **project management dashboard** for internal use.
 
-# 🔧 Technologies Used
+## 🔧 Technologies Used
 
 - Angular  v19
 - Node.js v20
@@ -16,7 +18,7 @@
 - TypeScript
 - EmailJS ...
 
-# 🚀 Getting Started
+## 🚀 Getting Started
 
 ### To run the project locally:
 
@@ -26,7 +28,7 @@
 
 - npm start
 
-# 📷 Screenshots:
+## 📷 Screenshots:
 
 <p align="center">
   <img src="src/assets/app_screenshot_0.png" width="250" />
