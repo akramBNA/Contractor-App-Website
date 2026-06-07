@@ -13,7 +13,7 @@ export class StatisticsComponent implements AfterViewInit {
     const counters = [
       { id: 'experience', endVal: 40 },
       { id: 'hours', endVal: 75000 },
-      { id: 'transport', endVal: 1000000 },
+      { id: 'transport', endVal: 500000 },
       { id: 'revenue', endVal: 5},
     ];
 
