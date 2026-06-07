@@ -1,45 +1,40 @@
-<section id="activitiés" class="w-full h-screen bg-blue-900 text-yellow-500 flex flex-col items-center justify-center px-6 py-12 relative">
-  
-  <h2 class="text-4xl sm:text-5xl font-bold text-yellow-500">Nos Activités</h2>
+<section id="activitiés" class="w-full min-h-screen bg-blue-900 text-yellow-500 flex flex-col items-center justify-center px-6 py-20 relative">
 
-  <div class="flex items-center justify-center w-full max-w-5xl mt-20 relative">
+  <h2 class="text-4xl sm:text-5xl font-bold text-yellow-500 mb-16">Nos Activités</h2>
 
-    <button (click)="prevCard()" class="absolute left-[-3rem] z-10 text-white text-5xl rounded-full shadow-lg hidden lg:block cursor-pointer">◀</button>
+  <div class="relative w-full max-w-xl flex items-center justify-center">
 
-    <div
-      #carousel
-      (scroll)="onScroll(carousel)"
-      class="carousel-container relative w-[90%] md:w-[600px] h-[500px] bg-blue-950 rounded-3xl flex items-center text-center shadow-xl transition-all duration-300 scale-105 lg:overflow-visible"
-      [ngClass]="{ 'flex-row': isMobile, 'flex-col': !isMobile }"
-    >
-      <ng-container *ngIf="!isMobile">
-        <img [src]="cards[activeIndex].image" alt="{{ cards[activeIndex].title }}" class="w-40 h-40 mb-6"/>
-        <h3 class="text-3xl font-semibold mb-3">{{ cards[activeIndex].title }}</h3>
-        <p class="text-lg text-white">{{ cards[activeIndex].description }}</p>
-      </ng-container>
+    <button
+      (click)="prevCard()"
+      class="hidden lg:flex absolute -left-16 z-10 w-12 h-12 items-center justify-center bg-yellow-500 hover:bg-yellow-400 text-blue-900 text-xl font-bold rounded-full shadow-lg transition-all duration-200 cursor-pointer"
+      aria-label="Previous">◀</button>
 
-      <ng-container *ngIf="isMobile">
-        <div *ngFor="let card of cards" class="carousel-card w-full h-full flex-shrink-0 scroll-snap-align-center flex flex-col items-center justify-center space-y-4 px-6 py-8 box-border text-center">
-          <img [src]="card.image" alt="{{ card.title }}" class="w-32 h-32 md:w-40 md:h-40 object-contain"/>
-          <h3 class="text-2xl md:text-3xl font-semibold">{{ card.title }}</h3>
-          <p class="text-base md:text-lg text-white max-w-md">{{ card.description }}</p>
+    <div class="carousel-container w-full h-[460px] bg-blue-950 rounded-3xl shadow-2xl overflow-hidden">
+      <div class="carousel-track" [style.transform]="'translateX(-' + (activeIndex * 100) + '%)'">
+        <div *ngFor="let card of cards" class="carousel-card">
+          <img [src]="card.image" [alt]="card.title" class="w-32 h-32 object-contain"/>
+          <h3 class="text-2xl font-semibold text-yellow-500">{{ card.title }}</h3>
+          <p class="text-base text-white leading-relaxed max-w-xs">{{ card.description }}</p>
         </div>
-      </ng-container>
+      </div>
     </div>
 
-    <button (click)="nextCard()" class="absolute right-[-3rem] z-10 text-white text-5xl rounded-full shadow-lg hidden lg:block cursor-pointer">▶</button>
+    <button
+      (click)="nextCard()"
+      class="hidden lg:flex absolute -right-16 z-10 w-12 h-12 items-center justify-center bg-yellow-500 hover:bg-yellow-400 text-blue-900 text-xl font-bold rounded-full shadow-lg transition-all duration-200 cursor-pointer"
+      aria-label="Next">▶</button>
   </div>
 
-  <div class="w-full flex justify-center mt-10 lg:hidden">
-    <div class="flex gap-2">
-      <div
-        *ngFor="let card of cards; let i = index"
-        class="w-6 h-2 rounded-full transition-all duration-300"
-        [ngClass]="{
-          'bg-yellow-500': i === activeIndex,
-          'bg-yellow-200': i !== activeIndex
-        }"
-      ></div>
+  <div class="flex gap-2 mt-10">
+    <div
+      *ngFor="let card of cards; let i = index"
+      class="rounded-full transition-all duration-300 cursor-pointer"
+      [ngClass]="{
+        'w-6 h-2 bg-yellow-500': i === activeIndex,
+        'w-2 h-2 bg-yellow-200 opacity-60': i !== activeIndex
+      }"
+      (click)="goToCard(i)">
     </div>
   </div>
+
 </section>
