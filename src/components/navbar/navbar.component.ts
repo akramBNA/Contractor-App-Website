@@ -15,7 +15,7 @@ export class NavbarComponent {
   };
 
   goToDashboard(): void {
-    window.location.href = 'https://dashboard-sohaba.work.gd';
+    window.location.href = '';
   };
 
 }
