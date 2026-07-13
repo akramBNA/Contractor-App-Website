@@ -1,34 +1,82 @@
-# 🚧 CONTRACTORS APP
+# 🚧 Contractors App
 
-## ⚠️ This project is currently in active development.
+## 📖 About the Project
 
-## ⚠️ THIS PROJECT IS FOR PERSONAL PORTFOLIO USE ONLY. PLEASE DO NOT REUSE OR REDISTRIBUTE ANY PART OF THIS CODE.
+**Contractors App** is the official showcase website for **Soheba**, a contractor company.
 
-## This is the version 2 of the app.
+The purpose of this application is to present the company's identity and provide visitors with information about:
 
-* This is an application that serves as the **showcase website** for a contractor company named **Soheba**. 
-* It highlights the company's identity, services, and projects. 
-* In the future, this application will also include a full-fledged **project management dashboard** for internal use.
+- 🏢 Company profile
+- 🛠️ Services
+- 📂 Numberss
+- 📞 Contact information
 
-## 🔧 Technologies Used
+This project represents the completed version of the company's showcase website. While the application is considered complete, future updates may include minor improvements, refinements, and additional content as needed.
 
-- Angular  v19
-- Node.js v20
-- Tailwind CS
+---
+
+## ⚠️ Project Status
+
+✅ Production Ready
+
+The application is fully functional and may receive occasional enhancements or maintenance updates in the future.
+
+---
+
+## 🔒 License
+
+This project was developed as a private application and is showcased here for portfolio purposes only.
+
+The source code, design, assets, and content are proprietary and **may not be copied, modified, redistributed, or reused** without prior permission from the author.
+
+---
+
+## 🛠️ Technologies Used
+
+### Frontend
+
+- Angular 19
 - TypeScript
-- EmailJS ...
+- Tailwind CSS
+- Angular Material
+
+### Backend & Services
+
+- Node.js 20
+- Express.js
+- EmailJS
+
+---
 
 ## 🚀 Getting Started
 
-### To run the project locally:
+### Clone the repository
 
-- Clone the repo
+```bash
+git clone <repository-url>
+```
 
-- npm install
+### Install dependencies
 
-- npm start
+```bash
+npm install
+```
 
-## 📷 Screenshots:
+### Run the application
+
+```bash
+npm start
+```
+
+Open your browser and navigate to:
+
+```
+http://localhost:4200
+```
+
+---
+
+# 📷 Screenshots
 
 <p align="center">
   <img src="src/assets/app_screenshot_0.png" width="250" />
@@ -36,4 +84,3 @@
   <img src="src/assets/app_screenshot_2.png" width="250" />
   <img src="src/assets/app_screenshot_3.png" width="250" />
 </p>
-
